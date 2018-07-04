@@ -3,34 +3,23 @@ const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
 const login = prompt("Введите пароль длиной от 4 до 16 символов");
 
-const checkLoginValidity = function(login) {
-  let result = login.length < 4 || login.length > 16 ? false : true;
-  return result;
-};
+const checkLoginValidity = login =>
+   (login.length >= 4 && login.length <= 16);
+
 console.log(checkLoginValidity(login));
 
 const checkIfLoginExists = function(logins, login) {
-  let result;
-  for (const value of logins) {
-    if (value === login) {
-      result = true;
-      break;
-    } else {
-      result = false;
-      break;
-    }
-  }
-  return result;
+logins.includes (login);
 };
 
 console.log(checkIfLoginExists(logins, login));
 
 const addLogin = function (logins, login) {
-  const valid = checkLoginValidity(login);
+  const isLoginValid = checkLoginValidity(login);
 
-  if (valid) {
-    const exists = checkIfLoginExists(logins, login);
-    if (exists) {
+  if (isLoginValid) {
+    const doesLoginExist = checkIfLoginExists(logins, login);
+    if (doesLoginExist) {
       alert( "Такой логин уже используется!");
     } else {
       alert ("Логин успешно добавлен!");
@@ -39,7 +28,6 @@ const addLogin = function (logins, login) {
   } else {
     alert ("Ошибка! Логин должен быть от 4 до 16 символов");
   }
-  return alert;
 };
 addLogin(logins, login);
 console.log(logins);
