@@ -8,9 +8,9 @@ const checkLoginValidity = login =>
 
 console.log(checkLoginValidity(login));
 
-const checkIfLoginExists = function(logins, login) {
-logins.includes (login);
-};
+const checkIfLoginExists = (logins, login) =>
+logins.includes(login);
+
 
 console.log(checkIfLoginExists(logins, login));
 
